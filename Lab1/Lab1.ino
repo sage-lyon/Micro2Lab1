@@ -1,19 +1,37 @@
-int greenLED = 24;
-int yellowLED = 23;
-int redLED = 22;
+const int Red_LED = 22;
+const int Yellow_LED = 24;
+const int Green_LED = 26;
+const int Buzzer = 28;
+const int Buzzer_Frequency = 1750;
+const byte interruptPin = 2;
+volatile byte state = LOW;
 
+int Button_Pressed = 0;
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(greenLED, OUTPUT);
-  pinMode(yellowLED, OUTPUT);
-  pinMode(redLED, OUTPUT);
+  pinMode(Red_LED, OUTPUT);
+  pinMode(Yellow_LED, OUTPUT);
+  pinMode(Green_LED, OUTPUT);
+
+  pinMode(Buzzer, OUTPUT);
+  
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), start, RISING);
 
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(redLED, HIGH);
-  delay(1000);
-  digitalWrite(redLED, LOW);
-  delay(1000);
+  if(Button_Pressed == 0){
+    digitalWrite(Red_LED, HIGH);
+    delay(1000);
+    digitalWrite(Red_LED, LOW);
+    delay(1000);
+    }
+    else{
+      Red();
+      }
 }
+
+
+void start(){
+    Button_Pressed = 1;
+  }
