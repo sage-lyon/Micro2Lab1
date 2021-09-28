@@ -10,7 +10,7 @@ int Button_Pressed = 0;
 void setup() {
   pinMode(Red_LED, OUTPUT);
   pinMode(Yellow_LED, OUTPUT);
-  pinMode(Green_LED, OUTPUT);
+  pinMode(Green_LED, OUTPUT);                                      
 
   pinMode(Buzzer, OUTPUT);
   
@@ -21,19 +21,30 @@ void setup() {
 
 void loop() {
   if(Button_Pressed == 0){
-    digitalWrite(Red_LED, HIGH);
-    delay(1000);
-    digitalWrite(Red_LED, LOW);
-    delay(1000);
+      digitalWrite(Red_LED, HIGH);
+      delay(1000);
+      digitalWrite(Red_LED, LOW);
+      delay(1000);
     }
     else{
-      Red();
+      digitalWrite(Red_LED, HIGH);
+      delay(17000);
+      beep();
+      digitalWrite(Red_LED, LOW);
+      digitalWrite(Yellow_LED, HIGH);
+      beep();
+      digitalWrite(Yellow_LED, LOW);
+      digitalWrite(Green_LED, HIGH);
+      delay(17000);
+      beep();
+      digitalWrite(Green_LED, LOW);
       }
 }
 
 
 void start(){
     Button_Pressed = 1;
+    
   }
 
 void beep(){
