@@ -35,3 +35,18 @@ void loop() {
 void start(){
     Button_Pressed = 1;
   }
+
+void beep(){
+  tone(Buzzer, Buzzer_Frequency);
+  delay(500);
+  noTone(Buzzer);
+  delay(500);
+  tone(Buzzer, Buzzer_Frequency);
+  delay(500);
+  noTone(Buzzer);
+  delay(500);
+  tone(Buzzer, Buzzer_Frequency);
+  delay(500);
+  noTone(Buzzer);
+  delay(500);
+}
