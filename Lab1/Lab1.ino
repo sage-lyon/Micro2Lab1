@@ -39,13 +39,13 @@ void loop() {
       delay(17000);
       beep();
       digitalWrite(redLED, LOW);
-      digitalWrite(yellowLED, HIGH);
-      beep();
-      digitalWrite(yellowLED, LOW);
       digitalWrite(greenLED, HIGH);
       delay(17000);
       beep();
       digitalWrite(greenLED, LOW);
+      digitalWrite(yellowLED, HIGH);
+      beep();
+      digitalWrite(yellowLED, LOW);
   }
 }
 
